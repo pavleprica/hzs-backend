@@ -1,4 +1,4 @@
-package io.github.com.pavleprica.hzs.template;
+package io.github.com.pavleprica.hzs.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

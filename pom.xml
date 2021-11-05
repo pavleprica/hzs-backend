@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.github.com.pavleprica</groupId>
-	<artifactId>hzs.template</artifactId>
+	<artifactId>hzs.todo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hzs.template</name>
-	<description>Template Spring project for the HZS hackathon</description>
+	<name>HZS TODO APP</name>
+	<description>HZS Workshop TODO App</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

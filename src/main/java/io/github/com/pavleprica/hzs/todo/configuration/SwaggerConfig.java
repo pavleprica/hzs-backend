@@ -1,4 +1,4 @@
-package io.github.com.pavleprica.hzs.template.configuration;
+package io.github.com.pavleprica.hzs.todo.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +18,7 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors
-                        .basePackage("io.github.com.pavleprica.hzs.template.controller"))
+                        .basePackage("io.github.com.pavleprica.hzs.todo.controller"))
                 .paths(PathSelectors.regex("/*"))
                 .build()
                 .apiInfo(apiEndpointsInfo());
