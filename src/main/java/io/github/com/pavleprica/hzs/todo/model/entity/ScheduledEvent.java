@@ -1,6 +1,5 @@
 package io.github.com.pavleprica.hzs.todo.model.entity;
 
-import io.github.com.pavleprica.hzs.todo.model.TodoItemType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,31 +8,29 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
-import java.util.Collection;
 
+/*
+Scheduled to a TODO
+ */
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Data
-public class TodoItem {
+public class ScheduledEvent {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-
-    private String description;
-
     @CreationTimestamp
     private Instant createdAt;
 
-    private TodoItemType todoItemType;
+    @ManyToOne
+    private TodoItem todoItem;
 
-    private boolean finished;
+    private String message;
 
-    @OneToMany
-    private Collection<ScheduledEvent> scheduledEvents;
+    private Instant scheduleTime;
 
 }
