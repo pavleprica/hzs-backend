@@ -1,1 +1,11 @@
+spring:
+  profiles:
+    active: test
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/todo-app
+    username: root
+    password: my-secret-pw
 
+  jpa:
+    hibernate:
+      ddl-auto: update
