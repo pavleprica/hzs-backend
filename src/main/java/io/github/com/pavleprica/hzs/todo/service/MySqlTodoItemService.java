@@ -18,6 +18,7 @@ public class MySqlTodoItemService implements TodoItemService {
 
     @Override
     public TodoItem saveTodoItem(@Valid TodoItem todoItem) {
+        todoItem.setId(null);
         return todoItemRepository.save(todoItem);
     }
 
