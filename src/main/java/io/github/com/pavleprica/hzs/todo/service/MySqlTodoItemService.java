@@ -4,12 +4,14 @@ import io.github.com.pavleprica.hzs.todo.exceptions.TodoItemNotFound;
 import io.github.com.pavleprica.hzs.todo.model.entity.TodoItem;
 import io.github.com.pavleprica.hzs.todo.repository.TodoItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.util.Collection;
 
 @SuppressWarnings("ClassCanBeRecord")
 @RequiredArgsConstructor
+@Service
 public class MySqlTodoItemService implements TodoItemService {
 
     private final TodoItemRepository todoItemRepository;
