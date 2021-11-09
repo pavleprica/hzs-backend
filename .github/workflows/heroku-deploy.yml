@@ -1,0 +1,33 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches:
+      - master
+      - feature/heroku-deploy
+
+
+jobs:
+  deploy:
+    name: Deploy to Heroku
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          region: eu
+          usedocker: true
+          docker_build_args: |
+            spring_profile
+            db_host
+            db_username
+            db_password
+        env:
+          spring_profile: prod
+          db_host: ${{ secrets.DB_HOST }}
+          db_username: ${{ secrets.DB_USERNAME }}
+          db_password: ${{ secrets.DB_PASSWORD }}
