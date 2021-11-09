@@ -19,14 +19,14 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors
                         .basePackage("io.github.com.pavleprica.hzs.todo.controller"))
-                .paths(PathSelectors.regex("/*"))
+                .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiEndpointsInfo());
     }
 
     private ApiInfo apiEndpointsInfo() {
         return new ApiInfoBuilder()
-                .title("HZS Hackathon - FONIS")
+                .title("HZS Hackathon - FONIS - Todo item app")
                 .contact(new Contact("Pavle Prica", "https://github.com/pavleprica", "pavle.prica@zuehlke.com"))
                 .version("0.0.1")
                 .build();
