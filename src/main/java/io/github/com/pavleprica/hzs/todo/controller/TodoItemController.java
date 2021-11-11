@@ -24,6 +24,7 @@ import java.util.Collections;
 @RequestMapping("/todo-items")
 @Api(tags = {"Todo items"})
 @Slf4j
+@CrossOrigin
 public class TodoItemController {
 
     private final TodoItemService todoItemService;
