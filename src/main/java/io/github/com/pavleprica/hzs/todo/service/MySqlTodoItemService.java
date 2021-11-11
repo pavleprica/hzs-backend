@@ -24,10 +24,12 @@ public class MySqlTodoItemService implements TodoItemService {
 
     @Override
     public TodoItem updateTodoItemById(Long todoItemId, TodoItem todoItem) throws TodoItemNotFound {
-        var todoItemExists = todoItemRepository.existsById(todoItemId);
+        var todoItemOptional = todoItemRepository.findById(todoItemId);
 
-        if (todoItemExists) {
+        if (todoItemOptional.isPresent()) {
+            var existingTodoItem = todoItemOptional.get();
             todoItem.setId(todoItemId);
+            todoItem.setCreatedAt(existingTodoItem.getCreatedAt());
             return todoItemRepository.save(todoItem);
         } else {
             throw new TodoItemNotFound(todoItemId);

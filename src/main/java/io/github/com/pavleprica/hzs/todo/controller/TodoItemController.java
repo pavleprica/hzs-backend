@@ -16,14 +16,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
 import java.net.URI;
-import java.time.Instant;
 import java.util.Collection;
 import java.util.Collections;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/todo-items")
-@Api(tags = { "Todo items" })
+@Api(tags = {"Todo items"})
 @Slf4j
 public class TodoItemController {
 
@@ -92,11 +91,12 @@ public class TodoItemController {
 
     private TodoItemDto mapToTodoItemDto(TodoItem todoItem) {
         return new TodoItemDto(
-            todoItem.getId(),
-            todoItem.getTitle(),
-            todoItem.getDescription(),
-            todoItem.getTodoItemType()
-        ); //TODO Expand with timestamps
+                todoItem.getId(),
+                todoItem.getTitle(),
+                todoItem.getDescription(),
+                todoItem.getTodoItemType(),
+                todoItem.getCreatedAt()
+        );
     }
 
     private TodoItem mapToTodoItem(TodoItemDto todoItemDto) {
@@ -104,7 +104,7 @@ public class TodoItemController {
                 todoItemDto.id(),
                 todoItemDto.title(),
                 todoItemDto.description(),
-                Instant.now(),
+                todoItemDto.createdAt(),
                 todoItemDto.todoItemType(),
                 false,
                 Collections.emptyList()
