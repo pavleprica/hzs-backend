@@ -17,7 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import javax.validation.Valid;
 import java.net.URI;
 import java.util.Collection;
-import java.util.Collections;
 
 @RestController
 @RequiredArgsConstructor
@@ -107,8 +106,7 @@ public class TodoItemController {
                 todoItemDto.description(),
                 todoItemDto.createdAt(),
                 todoItemDto.todoItemType(),
-                false,
-                Collections.emptyList()
+                false
         );
     }
 
