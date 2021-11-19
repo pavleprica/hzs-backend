@@ -9,3 +9,5 @@ spring:
       ddl-auto: update
 server:
   port: ${PORT}
+  error:
+    include-message: always
