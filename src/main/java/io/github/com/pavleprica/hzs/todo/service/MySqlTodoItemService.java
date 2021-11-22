@@ -38,10 +38,10 @@ public class MySqlTodoItemService implements TodoItemService {
 
     @Override
     public TodoItem getTodoItemById(Long todoItemId) throws TodoItemNotFound {
-        var optionalTodoItem = todoItemRepository.findById(todoItemId);
+        var todoItemOptional = todoItemRepository.findById(todoItemId);
 
-        if (optionalTodoItem.isPresent()) {
-            return optionalTodoItem.get();
+        if (todoItemOptional.isPresent()) {
+            return todoItemOptional.get();
         } else {
             throw new TodoItemNotFound(todoItemId);
         }
@@ -60,4 +60,31 @@ public class MySqlTodoItemService implements TodoItemService {
             throw new TodoItemNotFound(todoItemId);
         }
     }
+
+    @Override
+    public TodoItem markTodoItemDoneById(Long todoItemId) throws TodoItemNotFound {
+        var todoItemOptional = todoItemRepository.findById(todoItemId);
+
+        if (todoItemOptional.isPresent()) {
+            var existingTodoItem = todoItemOptional.get();
+            existingTodoItem.setIsDone(true);
+            return todoItemRepository.save(existingTodoItem);
+        } else {
+            throw new TodoItemNotFound(todoItemId);
+        }
+    }
+
+    @Override
+    public TodoItem markTodoItemNotDoneById(Long todoItemId) throws TodoItemNotFound {
+        var todoItemOptional = todoItemRepository.findById(todoItemId);
+
+        if (todoItemOptional.isPresent()) {
+            var existingTodoItem = todoItemOptional.get();
+            existingTodoItem.setIsDone(false);
+            return todoItemRepository.save(existingTodoItem);
+        } else {
+            throw new TodoItemNotFound(todoItemId);
+        }
+    }
+
 }

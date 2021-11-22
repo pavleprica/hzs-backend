@@ -22,6 +22,8 @@ public record TodoItemDto(
         @NotNull
         TodoItemType todoItemType,
 
-        Instant createdAt
+        Instant createdAt,
+
+        boolean isDone
 ) {
 }
