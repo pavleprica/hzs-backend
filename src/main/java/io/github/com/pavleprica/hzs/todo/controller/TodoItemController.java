@@ -95,7 +95,8 @@ public class TodoItemController {
                 todoItem.getTitle(),
                 todoItem.getDescription(),
                 todoItem.getTodoItemType(),
-                todoItem.getCreatedAt()
+                todoItem.getCreatedAt(),
+                todoItem.getIsDone()
         );
     }
 
@@ -106,7 +107,7 @@ public class TodoItemController {
                 todoItemDto.description(),
                 todoItemDto.createdAt(),
                 todoItemDto.todoItemType(),
-                false
+                todoItemDto.isDone()
         );
     }
 
