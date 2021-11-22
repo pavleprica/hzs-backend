@@ -19,4 +19,8 @@ public interface TodoItemService {
 
     void deleteTodoItemById(Long todoItemId) throws TodoItemNotFound;
 
+    TodoItem markTodoItemDoneById(Long todoItemId) throws TodoItemNotFound;
+
+    TodoItem markTodoItemNotDoneById(Long todoItemId) throws TodoItemNotFound;
+
 }

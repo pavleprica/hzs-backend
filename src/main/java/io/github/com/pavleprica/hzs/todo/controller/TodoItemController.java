@@ -77,6 +77,19 @@ public class TodoItemController {
         return ResponseEntity.created(createSelfLink()).body(mapToTodoItemDto(updatedTodoItem));
     }
 
+    @PutMapping("/{id}/done")
+    ResponseEntity<TodoItemDto> setToDoneById(@PathVariable Long id) throws TodoItemNotFound {
+        var updatedTodoItem = todoItemService.markTodoItemDoneById(id);
+
+        return ResponseEntity.created(createSelfLink()).body(mapToTodoItemDto(updatedTodoItem));
+    }
+
+    @PutMapping("/{id}/not-done")
+    ResponseEntity<TodoItemDto> setToNotDoneById(@PathVariable Long id) throws TodoItemNotFound {
+        var updatedTodoItem = todoItemService.markTodoItemNotDoneById(id);
+
+        return ResponseEntity.created(createSelfLink()).body(mapToTodoItemDto(updatedTodoItem));
+    }
     private URI createLocationUri(Long todoItemId) {
         return MvcUriComponentsBuilder
                 .fromController(getClass())
