@@ -33,6 +33,6 @@ public class TodoItem {
 
     private TodoItemType todoItemType;
 
-    private boolean finished;
+    private Boolean isDone;
 
 }
